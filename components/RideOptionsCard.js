@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native'
 import React, { Component, useState } from 'react'
-import { Text, View, TouchableOpacity, SafeAreaView, FlatList } from 'react-native'
+import { Text, View, TouchableOpacity, SafeAreaView, FlatList, StyleSheet } from 'react-native'
 import { Icon, Image } from 'react-native-elements'
 
 import tw from 'tailwind-react-native-classnames'
@@ -43,11 +43,11 @@ const RideOptionsCard = () => {
         <View>
             <TouchableOpacity
             onPress={() => navigation.navigate("NavigateCard")}
-            style={tw`absolute top-3 left-5 p-3 rounded-full`}
+            style={tw`absolute top-3 left-5 p-3 `}
             >
                 <Icon name='chevron-left' type='fontawesome' />
             </TouchableOpacity>
-            <Text style={tw`text-center py-5 text-xl`}> Selecione uma categoria - {travelTimeInformation?.distance.text} </Text>
+            <Text style={tw`text-center py-5 text-xl`}> Selecione uma categoria - {travelTimeInformation?.distance?.text} </Text>
         </View>
         <FlatList 
         data={data}
@@ -63,7 +63,7 @@ const RideOptionsCard = () => {
                 />
                 <View style={tw`-ml-6`}>
                     <Text style={tw`text-xl font-semibold`}>{title}</Text>
-                    <Text>Duração: {travelTimeInformation?.duration.text}</Text>
+                    <Text>Duração: {travelTimeInformation?.duration?.text}</Text>
                 </View>
                 <Text style={tw`text-xl`}>
                     {new Intl.NumberFormat('pt-BR', {
@@ -77,7 +77,7 @@ const RideOptionsCard = () => {
             </TouchableOpacity>
         )}
         />
-        <View>
+        <View style={tw`mt-auto border-t border-gray-200`}>
             <TouchableOpacity disabled={!selected} style={tw`bg-black py-3 m-3 ${!selected && 'bg-gray-300'}`}>
                 <Text style={tw`text-center text-white text-xl`}>Pedir {selected?.title}</Text>
             </TouchableOpacity>

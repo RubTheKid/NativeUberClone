@@ -26,7 +26,7 @@ const HomeScreen = () => {
                 uri: "https://links.papareact.com/gzs"
             }} />
             <GooglePlacesAutocomplete 
-            placeholder="Vamos para onde?"
+            placeholder="Digite o local do início da viagem"
             styles={{ container:{
                 flex: 0,
             },
