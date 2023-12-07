@@ -1,8 +1,10 @@
-import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import tw from 'tailwind-react-native-classnames'
-import Map from '../components/Map'
+import { StyleSheet, Text, View } from 'react-native'
+
 import { createStackNavigator } from '@react-navigation/stack'
+import tw from 'tailwind-react-native-classnames'
+
+import Map from '../components/Map'
 import NavigateCard from '../components/NavigateCard'
 import RideOptionsCard from '../components/RideOptionsCard'
 

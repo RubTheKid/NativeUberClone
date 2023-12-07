@@ -2,13 +2,17 @@ import React from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native";
-import tw from 'tailwind-react-native-classnames';
 import NavOptions from "../components/NavOptions";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
-import { GOOGLE_MAPS_APIKEY } from "@env";
 import { useDispatch } from "react-redux";
+
+import tw from 'tailwind-react-native-classnames';
+import { GOOGLE_MAPS_APIKEY } from "@env";
 import { setDestination, setOrigin } from "../slices/navSlice";
+
 import NavFavourites from "../components/NavFavourites";
+
+
 const HomeScreen = () => {
     const dispatch = useDispatch();
     return (

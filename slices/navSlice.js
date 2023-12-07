@@ -17,7 +17,7 @@ export const navSlice = createSlice({
             state.destination = action.payload;
         },
         setTravelTimeInformation: (state, action) =>{
-
+            state.travelTimeInformation = action.payload
         }
     }
 })
@@ -27,6 +27,6 @@ export const { setOrigin, setDestination, setTravelTimeInformation } = navSlice.
 //selectors
 export const selectOrigin = (state) => state.nav.origin;
 export const selectDestination = (state) => state.nav.destination;
-export const selectTravelTimeInformation = (state) => state.nav.setTravelTimeInformation;
+export const selectTravelTimeInformation = (state) => state.nav.travelTimeInformation;
 
 export default navSlice.reducer;

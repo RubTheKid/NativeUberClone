@@ -1,13 +1,19 @@
-import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import tw from 'tailwind-react-native-classnames'
-import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete'
-import { setDestination } from '../slices/navSlice'
-import { GOOGLE_MAPS_APIKEY } from '@env';
+import { View, Text, StyleSheet } from 'react-native'
 import { useDispatch } from 'react-redux';
+import { SafeAreaView } from 'react-native-safe-area-context'
+import { Icon } from 'react-native-elements'
+import { TouchableOpacity } from 'react-native-gesture-handler'
+import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete'
 import { useNavigation } from '@react-navigation/native'
+
+import { setDestination } from '../slices/navSlice'
+
+import { GOOGLE_MAPS_APIKEY } from '@env';
+
+import tw from 'tailwind-react-native-classnames'
 import NavFavourites from './NavFavourites'
+
 const NavigateCard = () => {
     const dispatch = useDispatch();
     const navigation = useNavigation();
@@ -40,6 +46,16 @@ const NavigateCard = () => {
             />
         </View>
         <NavFavourites />
+      </View>
+      <View style={tw`flex-row bg-white justify-evenly py-2 mt-auto border-t border-gray-100`} >
+        <TouchableOpacity onPress={() => navigation.navigate("RideOptionsCard")} style={tw`flex flex-row justify-between bg-black w-28 px-4 py-3 rounded-full`}>
+            <Icon name='car' type='font-awesome' color='white' size={16} />
+            <Text style={tw`text-white text-center`}>Viagens</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={tw`flex flex-row justify-between bg-white w-28 px-4 py-3 rounded-full`}>
+            <Icon name='fast-food-outline' type='ionicon' color='black' size={16} />
+            <Text style={tw`text-black text-center`}>Eats</Text>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   )
