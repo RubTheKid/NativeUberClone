@@ -29,6 +29,8 @@ const data = [
     }
 ]
 
+const SURGE_CHARGE_RATE = 1.5;
+
 const RideOptionsCard = () => {
 
     const navigation = useNavigation();
@@ -61,9 +63,17 @@ const RideOptionsCard = () => {
                 />
                 <View style={tw`-ml-6`}>
                     <Text style={tw`text-xl font-semibold`}>{title}</Text>
-                    <Text>travel time</Text>
+                    <Text>Duração: {travelTimeInformation?.duration.text}</Text>
                 </View>
-                <Text style={tw`text-xl`}>R$ 42</Text>
+                <Text style={tw`text-xl`}>
+                    {new Intl.NumberFormat('pt-BR', {
+                        style: 'currency',
+                        currency: 'BRL'
+                    }).format(
+                        (travelTimeInformation?.duration.value * SURGE_CHARGE_RATE * multiplier) / 100
+                    )}
+
+                </Text>
             </TouchableOpacity>
         )}
         />
